@@ -46,6 +46,11 @@ if($request == 'true'){
     echo $xmlOutput->asXML();
 }
 else{
-    print "<h3>" . strtoupper($query) . "</h3>";
-    print "<p>" . $definition[$query] . "</p>";
+    if($definition[$query] == ''){
+        print "<p> No matches found the search </p>";
+    }
+    else{
+        print "<h3>" . strtoupper($query) . "</h3>";
+        print "<p>" . $definition[$query] . "</p>";
+    }
 }    

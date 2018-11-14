@@ -20,6 +20,7 @@ window.onload = () => {
     
     function searchAll(){
         let ext = '?q=&all=true';
+        result.innerHTML = '';
         httpRequest.onreadystatechange = doSomethingXML;
         httpRequest.open('GET', url+ext, true);
         httpRequest.send();
@@ -30,7 +31,7 @@ window.onload = () => {
         let list = document.createElement('ol');
         for(let x = 0; x < data.length; x++){
             let listElement = document.createElement('li');
-            let html = `<h3>${data[x].getAttribute('name')}</h3><p>${data[x].innerHTML}</p><p>-${data[x].getAttribute('author')}</p>`;
+            let html = `<h3>${data[x].getAttribute('name')}</h3>`.toUpperCase()+`<p>${data[x].innerHTML}</p><p>-${data[x].getAttribute('author')}</p>`;
             listElement.innerHTML = html;
             list.appendChild(listElement);
         }
